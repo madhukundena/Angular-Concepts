@@ -1,0 +1,57 @@
+
+<div class="px-5">
+<form class="col-md-6" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="firstname" placeholder="First name" ngModel [(ngModel)]="user.firstname">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="lastname" placeholder="Last name" ngModel [(ngModel)]="user.lastname">
+        </div>
+      </div>
+      
+  <div class="form-group mt-3">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control"  name="email" aria-describedby="emailHelp" placeholder="Enter email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control"  name="password" placeholder="Password" ngModel>
+    </div>
+  
+    <label >Address:</label>
+    <div class="px-5" ngModelGroup="address">
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" name="city" placeholder="city" ngModel [(ngModel)]="user.address.city">
+          </div>
+
+          <div class="form-group">
+            <label for="Street">Street</label>
+            <input type="text" class="form-control" name="Street" placeholder="Street" ngModel>
+          </div>
+        <div class="form-group">
+            <label for="pincode">pincode</label>
+            <input type="text" class="form-control" name="pincode" placeholder="pincode" ngModel>
+          </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" id="country" name="country" ngModel>
+          <option *ngFor="let c of country" [value]="c">{{c}}</option>
+        </select>
+      </div>
+
+    <button type="submit" class="btn btn-primary mx-4">Submit</button>
+    <button type="reset" class="btn btn-primary" (click)="formReset(userForm)">Reset</button>
+  </form>
+</div>
+<div>
+    <p>{{userForm.value | json}}</p>
+    <p> valid: {{userForm.valid | json}}</p>
+    <p>touched: {{userForm.touched | json}}</p>
+    <p>submitted: {{userForm.submitted | json}}</p>
+</div>

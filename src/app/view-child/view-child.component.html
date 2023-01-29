@@ -1,0 +1,18 @@
+<p>view-child works!</p>
+
+
+<p #highlight>Hello there 111!!</p>
+<p #highlight>Hello there 222!!</p>
+
+
+<p #highlight_1>Hello there_111!!</p>
+<p #highlight_1>Hello there_222!!</p>
+<p #highlight_1>Hello there_333!!</p>
+
+<!-- childview is decorator value -->
+<h4>counter {{childview.counter}}</h4>
+<div>
+    <button (click)="inc()">Increment</button>
+    <button (click)="dec()">Decrement</button>
+</div>
+<app-counter #childview></app-counter>
